@@ -8,9 +8,8 @@ import 'react-input-range/lib/css/index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
-
+const Web3 = require("web3");
+const web3 = new Web3(Web3.givenProvider);
 
 const Spinner = () => (
   <div className="spinner">
@@ -115,7 +114,7 @@ export default function VestBCKGOV() {
   
   const handleDeposit = () => {
     try {
-      if(parseFloat(web3.utils.fromWei(balanceesBCKGOV?.toString() || '0', 'ether')) < depositAmount) {
+      if(parseFloat(web3.utils.fromWei(balanceesBCKGOV?.toString() || '0', 'ether')) < Number(depositAmount)) {
         toast.error("You don't have enough $esBCKGOV to vest.");
         return;
       }
@@ -249,8 +248,9 @@ const fetchClaimableAmount = async () => {
 
 
   const handleMaxDeposit = async () => {
-    const balance = await web3.eth.getBalance(address);
-    setDepositAmount(web3.utils.fromWei(balance, 'ether'));
+    const balance = web3.utils.fromWei(balanceesBCKGOV.toString(), 'ether'); 
+    const formattedbalance =  Number(balance).toFixed(2)
+    setDepositAmount( Number(formattedbalance).toFixed(2));
   };
 
 
