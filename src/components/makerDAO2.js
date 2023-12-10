@@ -268,4 +268,3 @@ export const MakerDAO2 = () => {
     </>
   );
 };
-
