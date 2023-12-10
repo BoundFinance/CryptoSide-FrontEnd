@@ -9,7 +9,7 @@ const STAKING_ADDRESS = '0x3f0B0A9d05dCAca3ecc1E18eaE969b1bA7384af4';  //BCKsavi
 const esbckgov = '0x33BA3496f51728b877fEBF1c64eFDCDBd6FEB631'; //esBCKGOV
 const buyeusd = "0xe9d856b22c30D98e36075CC85962F65eA7A668EB"; //buyEusd
 const buybckgov = "0xda3a3103883eFf3f518576C3D0735B01724E9117"; //buyBCKGOV
-const esbckgovtobckgov = '0x33BA3496f51728b877fEBF1c64eFDCDBd6FEB631'; //vest
+const esbckgovtobckgov = '0x60A12914CA9E174a4999A20Bc3F8521a02E01548'; //vest
 //0x7B59df5207b204b50BcF26fD62C77Aa16791E874
 
 module.exports = {
