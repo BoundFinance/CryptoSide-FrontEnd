@@ -327,7 +327,7 @@ export default function StackingCards() {
   useEffect(() => {
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
-      const annualizedRate = dailyInterestRate.mul(365).mul(100);
+      const annualizedRate = dailyInterestRate * (365) * (100);
       setBckGovEmissions(web3.utils.fromWei(annualizedRate.toString(), 'ether'));
     }
   }, [totalDeposits, totalDistributions]);
