@@ -9,6 +9,7 @@ import { useAccount, useContractRead, useContractWrite, useWaitForTransaction } 
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
 
+
 const bckEthAbi = require('../contract/bckEth.json'); // ABI for eUSD
 const eusdtobckAbi = require('../contract/lsdfitobck.json'); // Contract ABI for bcktoeUSD
 
@@ -26,10 +27,9 @@ const DisplaySystemInfo = () => {
 
 
   const { data: eUsdBalanceWeiData, refetch: refetchEUsdBalance } = useContractRead({
-    address: eUSD,
-    abi: bckEthAbi.abi,
-    functionName: 'balanceOf',
-    args: [bcktoeUSD],
+    address: bcktoeUSD,
+    abi: eusdtobckAbi.abi,
+    functionName: 'totalDepositedAsset',
   });
 
   const { data: bckMintedAmountData, refetch: refetchBckMintedAmount} = useContractRead({
@@ -44,12 +44,17 @@ const DisplaySystemInfo = () => {
     functionName: 'cashbackappshare',
   });
 
+  const toWeiSafe = (amount) => {
+    return amount ? web3.utils.toWei(amount, 'ether') : '0';
+  };
+
+
   useEffect(() => {
     if (eUsdBalanceWeiData) {
       setEUsdBalance(web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether'));
     }
     if (bckMintedAmountData) {
-      setBckMinted(web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether'));
+      setBckMinted(web3.utils.fromWei(bckMintedAmountData.toString(), 'ether'));
     }
     if (distributedData) {
       setDistributedYields(web3.utils.fromWei(distributedData.toString(), 'ether'));
