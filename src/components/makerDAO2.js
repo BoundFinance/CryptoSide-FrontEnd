@@ -4,7 +4,9 @@ import "../styles/MakerDao.css";
 import MintTabs2 from "./MintTabs2";
 import MintContent from "./MintContent";
 import { useAccount, useChainId, useContractRead } from "wagmi";
-import Web3 from 'web3';
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+
 
 import "./Style/MakerDao.css";
 import { STAKING_ADDRESS, esbckgov, esbckgovtobckgov } from '../contract';
@@ -12,7 +14,7 @@ import esbckgovAbi from '../contract/esBCKGOV.json';
 import bckEthAbi from '../contract/bckEth.json';
 import stakingabi from '../contract/staking.json'
 import { BCKGovemissions, bcktoeUSD } from '../contract';
-const web3 = new Web3(Web3.givenProvider);
+
 
 // Import contract addresses and ABIs
 
