@@ -13,8 +13,9 @@ import stakingAbi from '../contract/staking.json';
 import bckEthAbi from '../contract/bckEth.json';
 
 
-const Web3 = require("web3");
-const web3 = new Web3(Web3.givenProvider);
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+
 
 const Spinner = () => (
   <div className="spinner">
