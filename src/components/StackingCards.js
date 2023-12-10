@@ -311,22 +311,24 @@ export default function StackingCards() {
 
   useEffect(() => {
     if (bckBalance) {
-      setInputRangeValue(web3.utils.fromWei(bckBalance.toString(), 'ether'));
+      const balanceFormatted = web3.utils.fromWei(bckBalance.toString(), 'ether');
+      setInputRangeValue(Number(balanceFormatted).toFixed(2));
     }
     if (depositedBCK) {
-      setDepositedBCK(web3.utils.fromWei(depositedBCK.toString(), 'ether'));
+      const depositedFormatted = web3.utils.fromWei(depositedBCK.toString(), 'ether');
+      setDepositedBCK(Number(depositedFormatted).toFixed(2));
     }
     if (excessInterest) {
       const excessInterestString = String(excessInterest);
       const cleanedExcessInterest = excessInterestString.startsWith(',,') 
-      ? excessInterestString.substring(2) 
-      : excessInterestString;
-       const numericValue = Number(cleanedExcessInterest);
-
-      setWithdrawableInterest(web3.utils.fromWei(numericValue.toString(), 'ether'));
+        ? excessInterestString.substring(2) 
+        : excessInterestString;
+      const numericValue = Number(cleanedExcessInterest);
+      const withdrawableFormatted = web3.utils.fromWei(numericValue.toString(), 'ether');
+      setWithdrawableInterest(Number(withdrawableFormatted).toFixed(2));
     }
   }, [bckBalance, depositedBCK, excessInterest]);
-
+  
 
   // Calculate interest rate when data changes
   useEffect(() => {
