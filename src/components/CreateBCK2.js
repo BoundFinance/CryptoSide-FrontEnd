@@ -145,7 +145,7 @@ const handlepayback = () => {
     return;
   }
 
-  if((web3.utils.fromWei(balance?.toString() || '0', 'ether')) <= parseFloat(mintAmount)) {
+  if((web3.utils.fromWei(balance?.toString() || '0', 'ether')) < parseFloat(mintAmount)) {
     toast.error("You are trying to pay off more than you borrowed :D");
     return;
   }
@@ -175,7 +175,7 @@ const mintBCKhandle = () => {
     return;
   }
 
-  if((web3.utils.fromWei(maxMint?.toString() || '0', 'ether')) <= parseFloat(lockAmount)) {
+  if((web3.utils.fromWei(maxMint?.toString() || '0', 'ether')) < parseFloat(lockAmount)) {
     toast.error("You can't mint this much $BCK 😭. deposit more collateral");
     return;
   }
