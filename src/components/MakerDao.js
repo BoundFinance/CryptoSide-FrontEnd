@@ -8,13 +8,13 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 import { useAccount, useChainId, useContractRead, useContractEvent } from "wagmi";
 import { ethers } from 'ethers';
 import "./Style/MakerDao.css";
-
+import Web3 from 'web3';
 // Import contract addresses and ABIs
 import { bcktoeUSD, BCKGovemissions,  eUSD } from '../contract';
 const bckgovemissionsAbi = require('../contract/BCKgovemissions.json'); // Assuming this ABI works for both eUSD and BCK
 const eusdtobckAbi = require('../contract/lsdfitobck.json'); 
 const bckEthAbi = require('../contract/bckEth.json');
-const Web3 = require('web3');
+
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
 
 export const MakerDao = () => {
