@@ -51,15 +51,19 @@ const DisplaySystemInfo = () => {
 
   useEffect(() => {
     if (eUsdBalanceWeiData) {
-      setEUsdBalance(web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether'));
+      const balance = web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether');
+      setEUsdBalance(Number(balance).toFixed(2));
     }
     if (bckMintedAmountData) {
-      setBckMinted(web3.utils.fromWei(bckMintedAmountData.toString(), 'ether'));
+      const minted = web3.utils.fromWei(bckMintedAmountData.toString(), 'ether');
+      setBckMinted(Number(minted).toFixed(2));
     }
     if (distributedData) {
-      setDistributedYields(web3.utils.fromWei(distributedData.toString(), 'ether'));
+      const yields = web3.utils.fromWei(distributedData.toString(), 'ether');
+      setDistributedYields(Number(yields).toFixed(2));
     }
   }, [eUsdBalanceWeiData, bckMintedAmountData, distributedData]);
+  
 
   useEffect(() => {
     const intervalId = setInterval(() => {
