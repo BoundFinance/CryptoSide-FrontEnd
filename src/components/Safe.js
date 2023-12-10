@@ -11,8 +11,8 @@ import eusdtobckAbi from '../contract/lsdfitobck.json';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+const Web3 = require("web3");
+const web3 = new Web3(Web3.givenProvider);
 const BigNumber = Web3.utils.BN;
 
 const Spinner = () => (
@@ -319,7 +319,7 @@ export default function CheckCupSafety() {
             needleHeightRatio={0.5}
             value={parseFloat(percentage.toFixed(2)) / 100 > 0.1 ? 0.1 : parseFloat(percentage.toFixed(2)) / 100}
             segmentColors={["#7eb7ff", "#3a80ff", "#0047ff"]} // Light Blue to Medium Blue to Dark Blue
-            currentValueText={eusdShares < minusd ? "Stake Collateral to earn" : "  "} // Set to empty space
+            currentValueText={eusdShares < minusd ? "Stake Collateral to earn" : " "} // Set to empty space
             customSegmentLabels={[
               {
                 backgroundColor: ringBackgroundColor,
@@ -350,7 +350,7 @@ export default function CheckCupSafety() {
          percentage > 2.5 && percentage < 5 ? "#CEBA00" : // Yellow for percentages between 2.5 and 5
          "#49E600" // Green for all other cases
 }}>
-  {overHundredPercent ? "%" : `${percentage.toFixed(2)}%`}
+  {overHundredPercent ? `${percentage.toFixed(2)}%` : `${percentage}%`}
 </div>
 
         </div>
@@ -398,4 +398,5 @@ export default function CheckCupSafety() {
     </div>
   );
         }  
+
 
