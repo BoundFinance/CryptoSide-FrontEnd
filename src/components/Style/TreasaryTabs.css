@@ -1,0 +1,10 @@
+.image-outfit{
+    object-fit: cover;
+}
+.special-for-tab{
+    font-size: 10px !important;
+}
+.image-for{
+    height: 18.9vh;
+    object-fit: cover;
+}

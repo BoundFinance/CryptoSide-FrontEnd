@@ -1,0 +1,10 @@
+.border-shadow-li{
+    padding-bottom: 0px;
+    /* border-radius: 20px; */
+    /* border: 1px solid rgba(71, 16, 105, 0.00); */
+    background: linear-gradient(132deg, rgba(255, 255, 255, 0.08) 2.1%, rgba(255, 255, 255, 0.00) 66.15%);
+    box-shadow: 0px 1.39759px 2.79518px 0px rgba(0, 0, 0, 0.60);
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(150deg, #471069, #37BFFF) 1;
+}

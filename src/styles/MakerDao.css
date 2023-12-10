@@ -1,0 +1,181 @@
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.card,
+.input-group button,
+.btn {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.input-group input:focus,
+.input-group button:focus,
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 175, 255, 0.5);
+}
+
+.BoxGradient-buttons:hover {
+  color: rgb(200, 255, 254);
+}
+
+.card,
+.input-group input,
+.input-group button {
+  border-radius: 5px;
+}
+
+.input-group input,
+.input-group button {
+  height: 45px; /* arbitrary height for example */
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 30px;
+  justify-items: stretch;
+  align-items: stretch;
+  margin: 5px;
+  padding: 15px;
+  max-width: 1200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.general-infocard {
+  flex-basis: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.general-infocard h4 {
+  font-weight: 200;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(21, 22, 29, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  font-size: 1.5em;
+  font-weight: 750;
+  margin-bottom: 20px;
+  color: #caaeff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
+.input ::placeholder {
+  color: white;
+}
+
+.input-group button {
+  padding: 10px 20px;
+  font-size: 1em;
+  width: 100%;
+  color: #ffffff;
+  background-color: #282a36;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.input-group button:hover {
+  background-color: #ccecf6;
+  background-image: linear-gradient(to bottom, #ccecf6, #a5d4ed);
+  color: black;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text_input_active:focus {
+  background: red;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+}
+
+#cupDisplay,
+#cupList {
+  color: #ffffff;
+}
+
+.CupDisplay\&List th {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.table {
+  width: 100%;
+  color: #ffffff;
+}
+
+.table td,
+.table th {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cup-list-container {
+  display: none;
+  overflow-y: auto; /* Add vertical scrollbar if necessary */
+  max-height: 300px; /* Adjust based on your needs */
+}
+.styled-table {
+  width: 100%;
+  /* Add more styles to customize your table */
+}
+
+.bold {
+  font-weight: bold;
+}

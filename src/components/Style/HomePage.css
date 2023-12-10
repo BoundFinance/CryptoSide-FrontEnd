@@ -1,0 +1,695 @@
+.bound-home{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 101px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120px; /* 109.091% */
+    letter-spacing: 8.4px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.content-home-bound{
+    margin-top: 5rem;
+}
+.finance{
+    letter-spacing: 1.4px !important;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120px; /* 109.091% */
+    text-transform: uppercase;
+    margin-left: 3rem;
+}
+.line-straight-position{
+    position: relative;
+}
+.line-straight{
+    background: linear-gradient(90deg, #37BFFF 0%, #471069 70.6%, rgba(71, 16, 105, 0.00) 97.6%);
+    /* margin-left: 3rem; */
+    width: 75%;
+    height: 2px !important;
+    position: absolute;
+    left: 10%;
+}
+.crypto{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.52px;
+    text-transform: uppercase;
+    margin-left: 3rem;
+}
+.btn-get{
+    border-radius: 40px;
+    background: #ECECFB;
+    width: 300px;
+    /* height: 50px; */
+    color: #121212;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 6rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    box-shadow: -0px -1px 8px 0px white;
+}
+
+.btn-get-two{
+    border-radius: 40px;
+    background: #ECECFB;
+    width: 300px;
+    /* height: 50px; */
+    color: #121212;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 6rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    box-shadow: -0px -1px 8px 0px white;
+}
+.btn-get:hover{
+    color:#121212;
+}
+
+.btn-get-two:hover{
+    color:#121212;
+}
+
+.system{
+    color: #37BFFF;
+    font-family: Montserrat;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+.boxes{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    width: 250px;
+}
+.boxes-for-dynamic{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 300px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+.boxes-for-dynamic-first{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 300px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+.boxes-for-dynamic-second{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 300px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+.test-eth{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100px;
+}
+.total-interest{
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.total-interest-second{
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 2rem;
+}
+.line-straight-two{
+    background: linear-gradient(90deg, rgba(71, 16, 105, 0.00) 2.87%, #471069 18.23%, #37BFFF 51.04%, #471069 83.33%, rgba(71, 16, 105, 0.00) 97.6%);    margin-left: 25rem;
+    width: 45%;
+    height: 2px !important;
+    margin-left: 26rem;
+}
+.gradient-color{
+    width: 250px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+
+.tot{
+    margin-left: 5rem;
+}
+.bcketh{
+    margin-top: 3rem;
+    /* margin-left: 1.5rem; */
+    text-align: center;
+}
+
+@media (min-width:0px) and (max-width:374px){
+    .arrorw{
+        font-size: 3rem;
+    }
+    .for-box-btn{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .max-btn {
+        margin-top: 0.4rem;
+    }
+
+    .bck-color{
+        font-size: 20px !important;
+        margin-top: 1rem;
+    }
+    .content-home-bound{
+        margin-top: 1rem;
+    }
+    .boxes-for-dynamic{
+        min-width: 100px;
+        padding: 5px;
+        margin-top: 14px;
+    }
+    .boxes-for-dynamic-second {
+        min-width: 96px;
+        padding: 5.5px;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 120px;
+        padding: 5.5px;
+    }
+    .boxes-content{
+        margin-bottom: 7rem;
+        gap: 5px;
+        display: flex !important;
+         flex-wrap: wrap;
+    }
+    .bound-home{
+        font-size: 35.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 23px;
+        letter-spacing: 2.108px; 
+        display: flex;
+        justify-content: center; 
+
+    }
+    .crypto{
+        font-size: 23.077px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 38px;
+        letter-spacing: -0.702px;
+        display: flex;
+        justify-content: center; 
+    }
+    .finance{
+        font-size: 29.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 94.545% */
+        letter-spacing: 7.108px;  
+        display: flex;
+        justify-content: center; 
+    }
+    .line-straight{
+        height: 1px !important;
+        /* margin-left: 6rem; */
+        left: 27%;
+        width: 50%;
+        margin-bottom: 5px;
+    }
+
+
+    .btn-get{
+        margin-left: 9rem;
+        width: 100px;
+        /* height: 30px !important; */
+        font-size: 10px;
+        order:4;
+    }
+    .mobile-rsponsi{
+        display: flex;
+        justify-content: center;
+    }
+    .btn-get-two{
+        margin-left: 1rem;
+        width: 150px;
+        order: 4;
+        margin-top: 0px !important;
+        margin-bottom: 2rem !important;
+        height: 26px;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+    }
+    .system{
+        font-size: 20px;
+    }
+    .line-straight-two{
+        margin-left: 2rem;
+        width: 75%;
+    }
+    .gradient-color{
+        width:95%;
+        /* height: 5vh; */
+    }
+    .test-eth {
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 0px;
+    }
+    .tot{
+        margin-left: 2.8rem;
+        font-size: 10px;
+    }
+    .interest{
+        font-size: 10px;
+        text-align: center;
+    }
+    .bcketh{
+        font-size: 10px;
+        margin-top: 1.8rem;
+        margin-left: 0px;
+        text-align: center;
+    }
+    .total-interest-second{
+        margin-top: 1rem;
+    }
+}
+@media (min-width:375px) and (max-width:574px){
+    .content-home-bound{
+        margin-top: 1rem;
+    }
+    .boxes-for-dynamic{
+        min-width: 100px;
+        padding: 5px;
+    }
+    .boxes-for-dynamic-second {
+        min-width: 96px;
+        padding: 5.5px;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 120px;
+        padding: 5.5px;
+    }
+    .boxes-content{
+        margin-bottom: 7rem;
+    }
+    .bound-home{
+        font-size:48.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 94.545% */
+        letter-spacing: 2.108px; 
+        display: flex;
+        justify-content: center; 
+
+    }
+    .crypto{
+        font-size: 30.077px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.702px;
+        display: flex;
+        justify-content: center; 
+    }
+    .finance{
+        font-size: 40.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 94.545% */
+        letter-spacing: 7.108px;  
+        display: flex;
+        justify-content: center; 
+    }
+    .line-straight{
+        height: 1px !important;
+        left: 23%;
+        width: 50%;
+    }
+    .btn-get{
+        margin-left: 9rem;
+        width: 100px;
+        /* height: 30px !important; */
+        font-size: 10px;
+        order:4;
+    }
+    .btn-get-two{
+        margin-left: 7.5rem;
+        width: 150px;
+        order: 4;
+        margin-top: 0px !important;
+        margin-bottom: 2rem !important;
+        height: 26px;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+    }
+    .system{
+        font-size: 20px;
+    }
+    .line-straight-two{
+        margin-left: 2rem;
+        width: 75%;
+    }
+    .gradient-color{
+        width:95%;
+        /* height: 5vh; */
+    }
+    .test-eth {
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 0px;
+    }
+    .tot{
+        margin-left: 2.8rem;
+        font-size: 10px;
+    }
+    .interest{
+        font-size: 10px;
+        text-align: center;
+    }
+    .bcketh{
+        font-size: 10px;
+        margin-top: 1.8rem;
+        margin-left: 0px;
+        text-align: center;
+    }
+    .total-interest-second{
+        margin-top: 1rem;
+    }
+}
+
+  
+  /* Styles for tablet screens min-width: 230px;*/
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .content-home-bound{
+        margin-top: 1rem;
+    }
+    .boxes-for-dynamic-second {
+        min-width: 150px;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 100%;
+    }
+    .bound-home{
+        font-size: 50.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 94.545% */
+        letter-spacing: 3.108px;
+        
+    }
+    .crypto{
+        font-size: 30px;
+        letter-spacing: 1px;
+        line-height: 70px;
+        text-align: center;
+    }
+    .finance {
+        font-size: 50px;
+        line-height: 80px;
+        text-align: center;
+    }
+    .system {
+        color: #37BFFF;
+        font-family: Montserrat;
+        font-size: 41px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+    }
+    .line-straight-two{
+        margin-left: 6rem;
+        width: 60%;
+    }
+    .gradient-color{
+        width: 100%;
+    }
+    .boxes{
+        width: 95%;
+    }
+    .total-interest{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .tot{
+        margin-left: 0rem;
+    }
+    .test-eth {
+        font-size: 20px;
+    }
+    .boxes {
+        width: 91%;
+    }
+  }
+  
+  /* Styles for laptop screens */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .content-home-bound{
+        margin-top: 1rem;
+    }
+    .boxes-for-dynamic{
+        min-width: 200px;
+    }
+    .boxes-for-dynamic-second {
+        min-width: 230px;
+    }
+
+    .bound-home{
+        font-size: 80px;
+        letter-spacing: 1px;
+        line-height: 80px;
+    }
+    .crypto{
+        font-size: 35.077px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.702px;
+        margin-left: 1.8rem;
+    }
+    .line-straight-two{
+        margin-left: 12rem;
+        width: 50%;
+        
+    }
+    .system{
+        margin-top: 2rem;
+        font-size: 25px;
+    }
+    .finance{
+        font-size: 50.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 68px;
+        letter-spacing: 5.108px !important;  
+        margin-left: 1.8rem;
+    }
+    .bound-home{
+        font-size: 60.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 70px;
+        letter-spacing: 7.108px; 
+        margin-left: 1.8rem;
+    }
+    .line-straight{
+        /* margin-left: 0rem; */
+        left: 3%;
+    }
+    .btn-get{
+        width: 200px;
+        /* height: 40px !important; */
+        font-size: 15px;
+        margin-left: 1.5rem;
+        margin-top: 3rem !important;
+        line-height: 40px;
+    }
+    .btn-get-two{
+        width: 200px;
+        /* height: 40px !important; */
+        font-size: 15px;
+        margin-left: 1.5rem;
+        margin-top: 3   rem !important;
+        line-height: 40px;
+    }
+    .test-eth{
+        font-size: 16px;
+        line-height: 55px;
+    }
+    .boxes{
+        width: 150px;
+        /* height: 61px; */
+    }
+    .total-interest-second{
+        font-size: 15px;
+    }
+    .interest{
+        font-size: 15px;
+        text-align: center;
+    }
+    .tot{
+        /* margin-left: 3rem; */
+        font-size: 15px;
+    }
+    .bcketh{
+        text-align: center;
+    }
+    .boxes-content{
+        margin-bottom: 27rem;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 200px;
+    }
+}
+  
+  /* Styles for desktop screens */
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .content-home-bound{
+        margin-top: 5rem;
+    }
+    .bound-home{
+        font-size: 60px;
+        letter-spacing: 1px;
+        line-height: 60px;
+        margin-left: 3.3rem;
+    }
+    .line-straight {
+        /* margin-left: 2rem; */
+        left: 10%;
+    }
+    .crypto{
+        font-size: 35.077px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 50px;
+        letter-spacing: -0.702px;
+        display: flex;
+        justify-content: center;
+    }
+    .line-straight-two{
+        margin-left: 20rem;
+        width: 37%;
+        margin-top: 1rem;  
+    }
+    .system{
+        margin-top: 2rem;
+        font-size: 25px;
+    }
+    .finance{
+        font-size: 50.769px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 55px; /* 94.545% */
+        letter-spacing: 7.108px;  
+        display: flex;
+        justify-content: center;
+    }
+    .btn-get{
+        margin-left: 2rem;
+    }
+    .btn-get-two{
+        margin-left: 2rem;
+    }
+    .boxes-for-dynamic{
+        min-width: 101%;
+    }
+   
+  }
+
+  @media (min-width: 1200px) and (max-width: 1300px){
+    .btn-get{
+        margin-left: 3rem;
+    }
+    .btn-get-two{
+        margin-left: 3rem;
+    }
+    .crypto{
+        font-size: 32.077px;
+        /* text-align: center; */
+        margin-top: 1rem !important;
+        margin-left: 3rem !important;
+    }
+    .line-straight {
+       left: 12%;
+    }
+    .bound-home {
+        text-align: center;
+       line-height: 50px;
+       font-size: 64px;
+    }
+    .finance {
+        font-size: 60px;
+        text-align: center;
+        line-height: 65px;
+    }
+    .line-straight-two {
+        margin-left: 18rem;
+    }
+  }
+
+
+  @media (min-width: 1301px) {
+    .bound-home{
+        margin-left: 3rem !important;
+    }
+    .finance{
+        margin-left: 3rem !important;
+    }
+    .crypto{
+        margin-left: 3rem !important;
+        font-size: 53px;
+    }
+    
+  }
+  

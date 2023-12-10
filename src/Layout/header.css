@@ -1,0 +1,188 @@
+.brand-name{
+    margin-left: 2rem;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 42.58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.finance-name{
+    color: #35BEFF;
+    font-family: Montserrat;
+    font-size: 21.29px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    justify-content: end;
+}
+.custom-link{
+  height: 30px;
+  margin-top: 16px;
+  text-align: center;
+  /* width: 12%; */
+  padding: 0px;
+  font-size: 18px;
+  color: aliceblue !important;  
+}
+.custom-link-for-big{
+  color: aliceblue !important;
+  min-height: 1vh;
+  margin-top: 10px;
+  padding: 0px;
+  text-align: center;
+  /* width: 15%; */
+  margin-bottom: 10px;
+  line-height: 40px;
+}
+.custom-link-for-big-for-cdp{
+  color: aliceblue !important;
+  text-align: center;
+  padding: 0px;
+  height: 30px;
+  margin-top: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.custom-link.active{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+  font-size: 15px;
+}
+
+/* .custom-link:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+} */
+
+/* .custom-link-for-big-for-cdp:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+} */
+
+/* .custom-link-for-big:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+} */
+
+
+
+
+
+.custom-link-for-big.active{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+  font-size: 15px;
+}
+.main-nav{
+  background: linear-gradient(159deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%);
+box-shadow: -5px -5px 130px 0px rgba(62, 52, 52, 0.02) ;
+backdrop-filter: blur(21px);
+min-height: 70px; 
+padding: 0px;
+}
+/* .custom-link-for-big:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+} */
+
+.custom-link-for-big-for-cdp.active{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+
+/* .custom-link-for-big-for-cdp:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+} */
+
+@media (min-width: 0px) and (max-width: 500px){
+  .custom-link-for-big-for-cdp{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link-for-big.active{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+    border-radius: 50em;
+    border: 3px solid transparent;
+    font-size: 12px !important;
+  }
+  .brand-name{
+    font-size:20px;
+  }
+  .finance-name{
+    font-size:12px;
+  }
+}
+
+
+@media (min-width: 501px) and (max-width: 767px){
+  .custom-link-for-big{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link-for-big-for-cdp{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .brand-name{
+    font-size:24px;
+  }
+  .finance-name{
+    font-size:16px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px){
+  .custom-link-for-big{
+    color: aliceblue !important;
+    font-size: 7px;
+  }
+  .custom-link-for-big-for-cdp{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1200px){
+  .custom-link-for-big{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link-for-big-for-cdp{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+  .custom-link{
+    color: aliceblue !important;
+    font-size: 12px;
+  }
+}
