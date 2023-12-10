@@ -10,7 +10,7 @@ import "./Style/BCKETHcreationinfo.css";
 
 import 'react-input-range/lib/css/index.css';
 const Web3 = require('web3');
-const web3 = new Web3(Web3.givenProvider);
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
 
 
 
