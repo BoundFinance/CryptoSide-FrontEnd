@@ -6,15 +6,13 @@ import MintContent from "./MintContent";
 import { useAccount, useChainId, useContractRead } from "wagmi";
 import Web3 from 'web3';
 
-
 import "./Style/MakerDao.css";
 import { STAKING_ADDRESS, esbckgov, esbckgovtobckgov } from '../contract';
 import esbckgovAbi from '../contract/esBCKGOV.json'; 
 import bckEthAbi from '../contract/bckEth.json';
 import stakingabi from '../contract/staking.json'
 import { BCKGovemissions, bcktoeUSD } from '../contract';
-
-const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+const web3 = new Web3(Web3.givenProvider);
 
 // Import contract addresses and ABIs
 
@@ -101,46 +99,52 @@ export const MakerDAO2 = () => {
 
   const fetchClaimableAmount = async () => {
     try {
-
-      setClaimableAmount(web3.utils.fromWei(claimable.toString(), 'ether'));
-      setadvancedClaimableAmount(web3.utils.fromWei(claimableadvanced.toString(), 'ether'));
+      const formattedClaimableAmount = web3.utils.fromWei(claimable.toString(), 'ether');
+      setClaimableAmount(Number(formattedClaimableAmount).toFixed(2));
+  
+      const formattedAdvancedClaimableAmount = web3.utils.fromWei(claimableadvanced.toString(), 'ether');
+      setadvancedClaimableAmount(Number(formattedAdvancedClaimableAmount).toFixed(2));
     } catch (error) {
       console.error("Error fetching claimable amount:", error);
     }
   };
-
-
+  
 
   useEffect(() => {
     setActiveChain(getChainName(chainId));
     fetchClaimableAmount();
-
-
+  
     if (bckMinted) {
-      setMaxBCK(web3.utils.fromWei(bckMinted.toString(), 'ether'));
+      const formattedMaxBCK = web3.utils.fromWei(bckMinted.toString(), 'ether');
+      setMaxBCK(Number(formattedMaxBCK).toFixed(2));
     }
-
+  
     if (bckGovStaked) {
-      setDebtInVault(web3.utils.fromWei(bckGovStaked.toString(), 'ether'));
+      const formattedDebtInVault = web3.utils.fromWei(bckGovStaked.toString(), 'ether');
+      setDebtInVault(Number(formattedDebtInVault).toFixed(2));
     }
-
+  
     if (eusdShares) {
-      setCollateralAmount(web3.utils.fromWei(eusdShares.toString(), 'ether'));
-      // Calculate interestEarned based on eusdShares and your business logic
+      const formattedCollateralAmount = web3.utils.fromWei(eusdShares.toString(), 'ether');
+      setCollateralAmount(Number(formattedCollateralAmount).toFixed(2));
     }
+  
     if (excessInterest) {
-      setInterestEarned(web3.utils.fromWei(excessInterest.toString(), 'ether'));
+      const formattedInterestEarned = web3.utils.fromWei(excessInterest.toString(), 'ether');
+      setInterestEarned(Number(formattedInterestEarned).toFixed(2));
     }
-
+  
     if (bckGovInterest) {
-      setBckGovEmissions(web3.utils.fromWei(bckGovInterest.toString(), 'ether'));
+      const formattedBckGovEmissions = web3.utils.fromWei(bckGovInterest.toString(), 'ether');
+      setBckGovEmissions(Number(formattedBckGovEmissions).toFixed(2));
     }
-
+  
     if(AmountofPurchasableEsBCKGOV) {
-      setDiscountedAmount(web3.utils.fromWei(AmountofPurchasableEsBCKGOV.toString(), 'ether'));
+      const formattedDiscountedAmount = web3.utils.fromWei(AmountofPurchasableEsBCKGOV.toString(), 'ether');
+      setDiscountedAmount(Number(formattedDiscountedAmount).toFixed(2));
     }
-  }, [bckMinted, excessInterest, bckGovInterest, bckGovStaked, eusdShares, chainId, AmountofPurchasableEsBCKGOV]);
-
+  }, [bckMinted, bckGovStaked, eusdShares, excessInterest, bckGovInterest, chainId, AmountofPurchasableEsBCKGOV]);
+  
   return (
     <>
      
