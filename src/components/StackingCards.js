@@ -13,9 +13,8 @@ import stakingAbi from '../contract/staking.json';
 import bckEthAbi from '../contract/bckEth.json';
 
 
-const Web3 = require('web3');
+const Web3 = require("web3");
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
-
 
 const Spinner = () => (
   <div className="spinner">
@@ -318,7 +317,13 @@ export default function StackingCards() {
       setDepositedBCK(web3.utils.fromWei(depositedBCK.toString(), 'ether'));
     }
     if (excessInterest) {
-      setWithdrawableInterest(parseFloat(web3.utils.fromWei(excessInterest.toString(), 'ether')));
+      const excessInterestString = String(excessInterest);
+      const cleanedExcessInterest = excessInterestString.startsWith(',,') 
+      ? excessInterestString.substring(2) 
+      : excessInterestString;
+       const numericValue = Number(cleanedExcessInterest);
+
+      setWithdrawableInterest(web3.utils.fromWei(numericValue.toString(), 'ether'));
     }
   }, [bckBalance, depositedBCK, excessInterest]);
 
@@ -371,7 +376,7 @@ export default function StackingCards() {
             </div>
             <div className="">
               <p className="text-end font-bold text-13 font-bold font-Helvetica">
-                ${withdrawableInterest}
+                {withdrawableInterest}
               </p>
             </div>
           </div>
