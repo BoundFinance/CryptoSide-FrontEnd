@@ -35,7 +35,7 @@ const DisplaySystemInfo = () => {
   const { data: bckMintedAmountData, refetch: refetchBckMintedAmount} = useContractRead({
     address: bcktoeUSD,
     abi: eusdtobckAbi.abi,
-    functionName: 'bckMinted',
+    functionName: 'bckminted',
   });
 
   const { data: distributedData, refetch: refetchDistributed } = useContractRead({
