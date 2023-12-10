@@ -332,10 +332,12 @@ export default function StackingCards() {
 
   // Calculate interest rate when data changes
   useEffect(() => {
+    fetchData()
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
       const annualizedRate = dailyInterestRate * (365) * (100);
-      setBckGovEmissions(web3.utils.fromWei(annualizedRate.toString(), 'ether'));
+      const rounded = annualizedRate.toFixed(2);
+      setBckGovEmissions(rounded.toString());
     }
   }, [totalDeposits, totalDistributions]);
 
