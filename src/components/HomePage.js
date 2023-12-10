@@ -7,7 +7,7 @@ import { useAccount, useContractRead, useContractWrite, useWaitForTransaction } 
 
 
 const Web3 = require('web3');
-const web3 = new Web3(Web3.givenProvider);
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
 
 const bckEthAbi = require('../contract/bckEth.json'); // ABI for eUSD
 const eusdtobckAbi = require('../contract/lsdfitobck.json'); // Contract ABI for bcktoeUSD
