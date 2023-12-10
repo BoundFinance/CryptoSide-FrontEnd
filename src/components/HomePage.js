@@ -49,7 +49,7 @@ const DisplaySystemInfo = () => {
       setEUsdBalance(web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether'));
     }
     if (bckMintedAmountData) {
-      setBckMinted(bckMintedAmountData.toString());
+      setBckMinted(web3.utils.fromWei(eUsdBalanceWeiData.toString(), 'ether'));
     }
     if (distributedData) {
       setDistributedYields(web3.utils.fromWei(distributedData.toString(), 'ether'));
@@ -59,7 +59,7 @@ const DisplaySystemInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetchData();
-    }, 300000); // 5 minutes interval
+    }, 3000); // 5 minutes interval
 
     return () => clearInterval(intervalId);
   }, []);
