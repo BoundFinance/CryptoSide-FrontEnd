@@ -8,8 +8,9 @@ import 'react-input-range/lib/css/index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Web3 = require("web3");
-const web3 = new Web3(Web3.givenProvider);
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+
 
 const Spinner = () => (
   <div className="spinner">
