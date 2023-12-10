@@ -332,7 +332,6 @@ export default function StackingCards() {
 
   // Calculate interest rate when data changes
   useEffect(() => {
-    fetchData()
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
       const annualizedRate = dailyInterestRate * (365) * (100);
@@ -342,7 +341,7 @@ export default function StackingCards() {
   }, [totalDeposits, totalDistributions]);
 
   useEffect(() => {
-    const fetchDataInterval = 10 * 60 * 1000; // 10 minutes in milliseconds
+    const fetchDataInterval = 1440 * 60 * 1000; // 10 minutes in milliseconds
   
     const timeoutId = setTimeout(() => {
       fetchData(); // Run the first fetch
