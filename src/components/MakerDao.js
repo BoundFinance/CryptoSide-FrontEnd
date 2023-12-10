@@ -7,15 +7,16 @@ import { Link } from "react-router-dom";
 import { BiSolidChevronsRight } from "react-icons/bi";
 import { useAccount, useChainId, useContractRead, useContractEvent } from "wagmi";
 import { ethers } from 'ethers';
-import "./Style/MakerDao.css";
 import Web3 from 'web3';
+
+import "./Style/MakerDao.css";
+
 // Import contract addresses and ABIs
 import { bcktoeUSD, BCKGovemissions,  eUSD } from '../contract';
 const bckgovemissionsAbi = require('../contract/BCKgovemissions.json'); // Assuming this ABI works for both eUSD and BCK
 const eusdtobckAbi = require('../contract/lsdfitobck.json'); 
 const bckEthAbi = require('../contract/bckEth.json');
-
-const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
+const web3 = new Web3(Web3.givenProvider);
 
 export const MakerDao = () => {
   const { address } = useAccount();
@@ -45,6 +46,18 @@ export const MakerDao = () => {
     abi: eusdtobckAbi.abi,
     functionName: 'balance',
     args: [address],
+  });
+
+  const { data: reserveDistribution } = useContractRead({
+    address: bcktoeUSD,
+    abi: eusdtobckAbi.abi,
+    functionName: 'totalExcessReserve',
+  });
+
+  const { data: totalDepositedAssets } = useContractRead({
+    address: bcktoeUSD,
+    abi: eusdtobckAbi.abi,
+    functionName: 'totalDepositedAsset',
   });
 
   const { data: eUSDbalance } = useContractRead({
@@ -80,25 +93,13 @@ export const MakerDao = () => {
 
   const fetchData = async () => {
     try {
-      const provider =  new ethers.JsonRpcProvider(process.env.REACT_APP_ALCHEMYHTTPLINK);
-      const contract = new ethers.Contract(bcktoeUSD, eusdtobckAbi.abi, provider);
-
-      // Fetching total distributions
-      const oneDayAgo = (Date.now() / 1000) - 86400; // 24 hours ago in seconds
-      const currentBlock = await provider.getBlockNumber();
-      const oneDayAgoBlock = await provider.getBlock(oneDayAgo);
-      const events = await contract.queryFilter(
-        contract.filters.DistributedToReserve(), 
-        oneDayAgoBlock.number, 
-        currentBlock
-      );
-      const totalDistribution = events.reduce((acc, event) => acc.add(event.args.amount), 0);
-
-      // Fetching total deposited assets
-      const totalDeposited = await contract.totalDepositedAsset();
+      const totalDeposited = web3.utils.fromWei(totalDepositedAssets?.toString() || '0', 'ether');
+      const totalDistribution = web3.utils.fromWei(reserveDistribution?.toString() || '0', 'ether');
 
       setTotalDistributions(totalDistribution);
       setTotalDeposits(totalDeposited);
+
+      // Fetching total deposited assets
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -106,28 +107,23 @@ export const MakerDao = () => {
 
   // Calculate interest rate when data changes
   useEffect(() => {
+  
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
-      const annualizedRate = dailyInterestRate.mul(365).mul(100);
-      setBckGovEmissions(web3.utils.fromWei(annualizedRate.toString(), 'ether'));
+      const annualizedRate = dailyInterestRate * (365) * (100);
+      const rounded = annualizedRate.toFixed(2);
+      setBckGovEmissions(rounded.toString());
     }
   }, [totalDeposits, totalDistributions]);
 
-  // Schedule the fetch task to run daily at 1 PM UTC
   useEffect(() => {
-    const now = new Date();
-    const nextRun = new Date();
-    nextRun.setUTCHours(13, 0, 0, 0); // Set to 1 PM UTC
-    if (nextRun <= now) {
-      nextRun.setDate(nextRun.getDate() + 1); // Schedule for next day if the time is past for today
-    }
-    const msUntilNextRun = nextRun.getTime() - now.getTime();
-
+    const fetchDataInterval = 1440 * 60 * 1000; // 10 minutes in milliseconds
+  
     const timeoutId = setTimeout(() => {
       fetchData(); // Run the first fetch
-      setInterval(fetchData, 24 * 60 * 60 * 1000); // Then run it every 24 hours
-    }, msUntilNextRun);
-
+      setInterval(fetchData, fetchDataInterval); // Then run it every 10 minutes
+    }, fetchDataInterval - (new Date().getTime() % fetchDataInterval));
+  
     return () => {
       clearTimeout(timeoutId);
     };
@@ -136,28 +132,34 @@ export const MakerDao = () => {
 
   useEffect(() => {
     setActiveChain(getChainName(chainId));
-
+  
     if (bckMinted) {
-      setMaxBCK(web3.utils.fromWei(bckMinted.toString(), 'ether'));
+      const formattedMaxBCK = web3.utils.fromWei(bckMinted.toString(), 'ether');
+      setMaxBCK(Number(formattedMaxBCK).toFixed(2));
     }
-
+  
     if (eUSDbalance) {
-      setDebtInVault(web3.utils.fromWei(eUSDbalance.toString(), 'ether'));
+      const formattedDebtInVault = web3.utils.fromWei(eUSDbalance.toString(), 'ether');
+      setDebtInVault(Number(formattedDebtInVault).toFixed(2));
     }
-
+  
     if (eusdShares) {
-      setCollateralAmount(web3.utils.fromWei(eusdShares.toString(), 'ether'));
+      const formattedCollateralAmount = web3.utils.fromWei(eusdShares.toString(), 'ether');
+      setCollateralAmount(Number(formattedCollateralAmount).toFixed(2));
       // Calculate interestEarned based on eusdShares and your business logic
     }
+  
     if (excessInterest) {
-      setInterestEarned(web3.utils.fromWei(excessInterest.toString(), 'ether'));
+      const formattedInterestEarned = web3.utils.fromWei(excessInterest.toString(), 'ether');
+      setInterestEarned(Number(formattedInterestEarned).toFixed(2));
     }
-
+  
     if (bckGovInterest) {
-      setBckGovEmissions(web3.utils.fromWei(bckGovInterest.toString(), 'ether'));
+      const formattedBckGovEmissions = web3.utils.fromWei(bckGovInterest.toString(), 'ether');
+      setBckGovEmissions(Number(formattedBckGovEmissions).toFixed(2));
     }
-  }, [bckMinted, excessInterest, bckGovInterest, eUSDbalance, eusdShares, chainId]);
-
+  }, [bckMinted, eUSDbalance, eusdShares, excessInterest, bckGovInterest, chainId]);
+  
   return (
     <>
      
@@ -298,3 +300,4 @@ export const MakerDao = () => {
     </>
   );
 };
+
