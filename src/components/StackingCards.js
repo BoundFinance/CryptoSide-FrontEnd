@@ -250,6 +250,7 @@ export default function StackingCards() {
       toast.error("You Have No Interest To Withdraw");
     } else {
       try {
+        loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
         withdrawInterests(); // Assuming this returns a promise
         setDepositSuccessShown(false);
       
