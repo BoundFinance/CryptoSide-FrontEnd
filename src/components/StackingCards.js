@@ -333,6 +333,7 @@ export default function StackingCards() {
 
   // Calculate interest rate when data changes
   useEffect(() => {
+    fetchData();
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
       const annualizedRate = dailyInterestRate * (365) * (100);
@@ -340,20 +341,6 @@ export default function StackingCards() {
       setBckGovEmissions(rounded.toString());
     }
   }, [totalDeposits, totalDistributions]);
-
-  useEffect(() => {
-    const fetchDataInterval = 1440 * 60 * 1000; // 10 minutes in milliseconds
-  
-    const timeoutId = setTimeout(() => {
-      fetchData(); // Run the first fetch
-      setInterval(fetchData, fetchDataInterval); // Then run it every 10 minutes
-    }, fetchDataInterval - (new Date().getTime() % fetchDataInterval));
-  
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
-  
 
   return (
     <div className="grid grid-cols-1 w-full max-w-[1449px] mt-[10px] gap-4 mx-auto p-4 md:grid-cols-2">
