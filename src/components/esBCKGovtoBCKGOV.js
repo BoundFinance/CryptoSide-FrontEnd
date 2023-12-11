@@ -61,6 +61,7 @@ export default function VestBCKGOV() {
     address: esbckgovtobckgov,
     abi: esbckgovAbi.abi,
     functionName: 'claim'
+    args: [address]
   });
 
   const {write: unlockAllContract, data: unlockAllContractData, error: unlockAllError } = useContractWrite({
