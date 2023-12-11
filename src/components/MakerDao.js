@@ -107,7 +107,7 @@ export const MakerDao = () => {
 
   // Calculate interest rate when data changes
   useEffect(() => {
-  
+  fetchData();
     if (totalDeposits && totalDistributions) {
       const dailyInterestRate = totalDistributions / (totalDeposits);
       const annualizedRate = dailyInterestRate * (365) * (100);
@@ -115,19 +115,6 @@ export const MakerDao = () => {
       setBckGovEmissions(rounded.toString());
     }
   }, [totalDeposits, totalDistributions]);
-
-  useEffect(() => {
-    const fetchDataInterval = 1440 * 60 * 1000; // 10 minutes in milliseconds
-  
-    const timeoutId = setTimeout(() => {
-      fetchData(); // Run the first fetch
-      setInterval(fetchData, fetchDataInterval); // Then run it every 10 minutes
-    }, fetchDataInterval - (new Date().getTime() % fetchDataInterval));
-  
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
 
 
   useEffect(() => {
