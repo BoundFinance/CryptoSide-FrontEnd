@@ -1,16 +1,16 @@
 
 
-const BCK_ADDRESS = "0x3F6570ae4aD96C79bC99d929A5FADd842ea00C3A"; //bck
-const BCKGovemissions = "0x0AfEaE38d7814C42624cd2ba7FC7d4684448AFA6"; //GovernanceEmissions
-const BCKgov = "0x70EE3F925F4A8299db5d5fB575E8e36cd6Fa0177"; //BCKGOV
-const bcktoeUSD = "0x9c77DE468a2a191Ea31C20338F6d4A9A1B4A6e1A"; //eusdTobck
-const eUSD =  "0x7811a966f3bad4FE0ebfa2efFa2c3343BD46aD2e";  //stabletoken
-const STAKING_ADDRESS = '0x3F6570ae4aD96C79bC99d929A5FADd842ea00C3A';  //BCKsavin
-const esbckgov = '0xE5D555EC2ff7A19DCB388E252B7DE5151C2a4cbE'; //esBCKGOV
-const buyeusd = "0x5920e16E8bb7482aBC9Eb97B65F1f7C77ee09253"; //buyEusd
-const buybckgov = "0x660577C3723154d3ceEcC3CBbba36dBb37BF9d2e"; //buyBCKGOV
-const esbckgovtobckgov = '0xb323a5B6716cf5CEFBa420126F63D23D5441F238'; //vest
-//0x7B59df5207b204b50BcF26fD62C77Aa16791E874
+const BCK_ADDRESS = "0x377E75B512De4Ea89128ae9C8fd6b54BAf227c89"; //bck
+const BCKGovemissions = "0x8F2540335586FDfC126C93dF50CeF756Afe3dC89"; //GovernanceEmissions
+const BCKgov = "0xb2b4bAA6Fc4E219010C4B3Ef8448E26089F2e837"; //BCKGOV
+const bcktoeUSD = "0xc3f09CD2A83625C19b330d0fD95642bBD4557DBd"; //eusdTobck
+const eUSD =  "0x406946e2D8a0F4ef5e10B853b43b96FD9fe85a64";  //stabletoken
+const STAKING_ADDRESS = '0x32e4e2150DfdAd372b7eE162B6b98E1B71DFd0B0';  //BCKsavin
+const esbckgov = '0x0C9C32b903cf3B6cE966c8D50bf8c2B62d3179c7'; //esBCKGOV
+const buyeusd = "0x4CDf2a5e026572f09087bd5b97Bd138F012711E8"; //buyEusd
+const buybckgov = "0x662e341FC92400d74D760a413a926d2Ae8F9D7B2"; //buyBCKGOV
+const esbckgovtobckgov = '0xfE6795c11286B0C23b215522526B93F34ab9F532'; //vest
+//
 
 module.exports = {
    
