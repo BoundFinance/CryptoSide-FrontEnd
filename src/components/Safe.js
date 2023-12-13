@@ -242,17 +242,20 @@ export default function CheckCupSafety() {
 
 
 
-  useEffect(() => {
-    if (depositedBCK) {
-      setBCKGOVbalance(web3.utils.fromWei(depositedBCK.toString(), 'ether'));
-    }
-    if (eusdShares1) {
-      seteUSDshares(web3.utils.fromWei(eusdShares1.toString(), 'ether'));
-    }
-    if (minimumeUSD) {
-      setminusd(web3.utils.fromWei(minimumeUSD.toString(), 'ether'));
-    }
-  }, [depositedBCK, eusdShares1, minimumeUSD]);
+useEffect(() => {
+  // Set BCKGOVbalance if depositedBCK is defined, else set to 0
+  const newBCKGOVbalance = depositedBCK ? web3.utils.fromWei(depositedBCK.toString(), 'ether') : 0;
+  setBCKGOVbalance(newBCKGOVbalance);
+
+  // Set eUSDshares if eusdShares1 is defined, else set to 0
+  const newEUSDshares = eusdShares1 ? web3.utils.fromWei(eusdShares1.toString(), 'ether') : 0;
+  seteUSDshares(newEUSDshares);
+
+  // Set minusd if minimumeUSD is defined, else set to 0
+  const newMinusd = minimumeUSD ? web3.utils.fromWei(minimumeUSD.toString(), 'ether') : 0;
+  setminusd(newMinusd);
+}, [depositedBCK, eusdShares1, minimumeUSD]);
+
 
 
   useEffect(() => {
