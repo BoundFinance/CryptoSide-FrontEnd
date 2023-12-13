@@ -204,6 +204,7 @@ export default function StackingCards() {
     }
   
     setIsLoading(true);
+     toast.dismiss(loadingToastId.current);
     loadingToastId.current = toast.info(<Spinnerapproval />, { autoClose: false });
   
     try {
@@ -231,6 +232,7 @@ export default function StackingCards() {
     }
   
     setIsLoading(true);
+     toast.dismiss(loadingToastId.current);
     loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
   
     try {
@@ -250,6 +252,7 @@ export default function StackingCards() {
       toast.error("You Have No Interest To Withdraw");
     } else {
       try {
+         toast.dismiss(loadingToastId.current);
         loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
         withdrawInterests(); // Assuming this returns a promise
         setDepositSuccessShown(false);
