@@ -153,6 +153,7 @@ const handlepayback = () => {
 
 
   setIsLoading(true);
+   toast.dismiss(loadingToastId.current);
   loadingToastId.current = toast.info(<Spinnerapproval />, { autoClose: false });
 
   try {
@@ -182,6 +183,7 @@ const mintBCKhandle = () => {
 
 
   setIsLoading(true);
+   toast.dismiss(loadingToastId.current);
   loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
 
   try {
