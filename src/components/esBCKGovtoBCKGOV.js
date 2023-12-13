@@ -121,6 +121,7 @@ export default function VestBCKGOV() {
       }
 
       setIsLoading(true);
+      toast.dismiss(loadingToastId.current);
       loadingToastId.current = toast.info(<Spinnerapproval />, { autoClose: false });
       esbckgovApprove();
       setDepositCalled(false);
@@ -140,6 +141,7 @@ export default function VestBCKGOV() {
         return;
       }
       setIsLoading(true);
+      toast.dismiss(loadingToastId.current);
       loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
       claimContract();
       setDepositSuccessShown(false);
@@ -161,6 +163,7 @@ export default function VestBCKGOV() {
     if (confirmUnlock) {
       try {
         setIsLoading(true);
+        toast.dismiss(loadingToastId.current);
         loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
         unlockAllContract();
         setDepositSuccessShown(false);
@@ -177,6 +180,7 @@ export default function VestBCKGOV() {
   const deposit = () => {
     try {
       setIsLoading(true);
+      toast.dismiss(loadingToastId.current);
       loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
       vestingContract();
       setDepositSuccessShown(false);
@@ -207,15 +211,15 @@ export default function VestBCKGOV() {
     }
     if(success2 === "success" && !depositSuccessShown) {
       toast.dismiss(loadingToastId.current);
-      toast.success("successfully minted $BCK!");
+      toast.success("Successful Transaction!");
       setDepositSuccessShown(true);
     } else if (success3 === "success" && !depositSuccessShown) {
       toast.dismiss(loadingToastId.current);
-      toast.success("successfully minted $BCK!");
+      toast.success("Successful Transaction");
       setDepositSuccessShown(true);
     } else if (success4 === "success" && !depositSuccessShown) {
       toast.dismiss(loadingToastId.current);
-      toast.success("successfully minted $BCK!");
+      toast.success("Successful Transaction");
       setDepositSuccessShown(true);
     }
     const errors = [approveError, vestingError, claimError, unlockAllError, error1, error2, error3, error4];
