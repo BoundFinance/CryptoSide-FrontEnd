@@ -321,7 +321,7 @@ useEffect(() => {
             needleHeightRatio={0.5}
             value={parseFloat(percentage.toFixed(2)) / 100 > 0.1 ? 0.1 : parseFloat(percentage.toFixed(2)) / 100}
             segmentColors={["#7eb7ff", "#3a80ff", "#0047ff"]} // Light Blue to Medium Blue to Dark Blue
-            currentValueText={eusdShares < minusd ? "Stake Collateral to earn" : " "} // Set to empty space
+            currentValueText="2.5% Minimum" // Set to empty space
             customSegmentLabels={[
               {
                 backgroundColor: ringBackgroundColor,
@@ -337,7 +337,7 @@ useEffect(() => {
               "#ffff"
             }
             
-            currentValuePlaceholderStyle=""
+            currentValuePlaceholderStyle="-"
             minValue={0}
             maxValue={0.1}
           />
@@ -352,7 +352,7 @@ useEffect(() => {
          percentage > 2.5 && percentage < 5 ? "#CEBA00" : // Yellow for percentages between 2.5 and 5
          "#49E600" // Green for all other cases
 }}>
-  {overHundredPercent ? `${percentage.toFixed(2)}%` : `${percentage}%`}
+  {overHundredPercent ? `${percentage.toFixed(2)}%` : `${percentage.toFixed(2)}%`}
 </div>
 
         </div>
@@ -400,5 +400,6 @@ useEffect(() => {
     </div>
   );
         }  
+
 
 
