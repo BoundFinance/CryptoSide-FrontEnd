@@ -155,6 +155,7 @@ export default function CreateBCK() {
     }
   
     setIsLoading(true);
+    toast.dismiss(loadingToastId.current);
     loadingToastId.current = toast.info(<Spinnerapproval />, { autoClose: false });
   
     try {
@@ -183,6 +184,7 @@ export default function CreateBCK() {
     }
   
     setIsLoading(true);
+     toast.dismiss(loadingToastId.current);
     loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
   
     try {
@@ -201,6 +203,7 @@ export default function CreateBCK() {
   const handleWithdrawExcess = async () => {
   
     setIsLoading(true);
+     toast.dismiss(loadingToastId.current);
     loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
   
     try {
