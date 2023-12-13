@@ -258,8 +258,8 @@ export default function CheckCupSafety() {
   useEffect(() => {
     const esud = web3.utils.fromWei(eusdShares1.toString(), 'ether');
     const BCKGOVdeposit = web3.utils.fromWei(depositedBCK.toString(), 'ether');
-    let stakePercentage = ((BCKGOVdeposit / esud) * 100);
-    const min =  web3.utils.fromWei(minimumeUSD.toString(), 'ether'); // Convert to 
+    let stakePercentage = BCKGOVdeposit && esud ? ((BCKGOVdeposit / esud) * 100) : 0;
+    const min =  minimumeUSD ? web3.utils.fromWei(minimumeUSD?.toString(), 'ether') : 0;
     if(esud < min) {
       stakePercentage = 0;
     }
