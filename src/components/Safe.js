@@ -247,7 +247,6 @@ useEffect(() => {
   const newBCKGOVbalance = depositedBCK ? web3.utils.fromWei(depositedBCK.toString(), 'ether') : 0;
   setBCKGOVbalance(newBCKGOVbalance);
 
-  // Set eUSDshares if eusdShares1 is defined, else set to 0
   const newEUSDshares = eusdShares1 ? web3.utils.fromWei(eusdShares1.toString(), 'ether') : 0;
   seteUSDshares(newEUSDshares);
 
@@ -259,8 +258,8 @@ useEffect(() => {
 
 
   useEffect(() => {
-    const esud = web3.utils.fromWei(eusdShares1.toString(), 'ether');
-    const BCKGOVdeposit = web3.utils.fromWei(depositedBCK.toString(), 'ether');
+    const esud = eusdShares;
+    const BCKGOVdeposit = bckGovBalance;
     let stakePercentage = BCKGOVdeposit && esud ? ((BCKGOVdeposit / esud) * 100) : 0;
     const min =  minimumeUSD ? web3.utils.fromWei(minimumeUSD?.toString(), 'ether') : 0;
     if(esud < min) {
