@@ -98,7 +98,8 @@ export default function CheckCupSafety() {
   
 
   const bckGovcost = (amount) => {
-    if (!penaltyfee) {
+  const penaltyether = penaltyfee ? penaltyfee.toString() : '0';
+    if (!penaltyether) {
       console.error('Penalty fee is undefined');
       return '0';
     }
@@ -179,12 +180,13 @@ export default function CheckCupSafety() {
   
 
   const handleDepositMaxInput = async() => {
-    if(!penaltyfee || penaltyfee === "N/A" || penaltyfee === 0) {
-      penaltyfee = 0;
+   const penaltyether = penaltyfee ? penaltyfee.toString() : '0';
+    if(!penaltyether || penaltyether === "N/A" || penaltyether === 0) {
+      penaltyether = 0;
     }
     if (penaltyfee) {
       const balance  = (web3.utils.fromWei(balanceofBCKGOV.toString(), 'ether'));
-      const cost = (parseFloat(balance) / parseFloat(penaltyfee)) / 100;
+      const cost = (parseFloat(balance) / parseFloat(penaltyether)) / 100;
       const balanceDiscountBCKGOV  = (web3.utils.fromWei(AmountofPurchasableEsBCKGOV.toString(), 'ether'));
       const maxAmount = Math.min(parseFloat(balanceDiscountBCKGOV), parseFloat(cost));
      setStakeAmount(maxAmount.toString()); // Reset this flag whenever bckapprove is called
