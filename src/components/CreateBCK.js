@@ -355,7 +355,11 @@ export default function CreateBCK() {
             type="number"
             value={mintAmount}
             onChange={(e) => setMintAmount(e.target.value)}
-            placeholder={`Balance: ${web3.utils.fromWei(shares?.toString() || '0', 'ether')} eUSD`}
+            placeholder={`Max Withdrawal Amount: ${Math.min(
+              parseFloat(web3.utils.fromWei(shares?.toString() || '0', 'ether')),
+              parseFloat(web3.utils.fromWei(bckwithdrawMaxStable?.toString() || '0', 'ether'))
+          
+            )} eUSD`}
             className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
           />
           <button onClick={handleMaxBck} className="ml-2 drop-shadow-xl max-btn">Max</button>
