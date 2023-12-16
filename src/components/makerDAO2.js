@@ -67,7 +67,7 @@ export const MakerDAO2 = () => {
     address: bcktoeUSD,
     abi: eusdtobckAbi.abi,
     functionName: 'withdrawableExcessOf',
-    args: [],
+    args: [address],
   });
 
   const { data: bckGovInterest } = useContractRead({
@@ -84,12 +84,20 @@ export const MakerDAO2 = () => {
     args: [address],
   });
 
-  const {data: claimableadvanced} = useContractRead({
+  const {data: claimableadvanced } = useContractRead({
     address: esbckgovtobckgov,
     abi: esbckgovAbi.abi,
     functionName: 'UnlockedPrematurelyview',
-    args: [address]
+    args: [address],
   });
+
+  const {data: timetoredeem } = useContractRead({
+    address: esbckgovtobckgov,
+    abi: esbckgovAbi.abi,
+    functionName: 'time2fullRedemption',
+    args: [address],
+  });
+
 
    const { data: AmountofPurchasableEsBCKGOV } = useContractRead({
     address: BCKGovemissions,
@@ -99,11 +107,33 @@ export const MakerDAO2 = () => {
 
   const fetchClaimableAmount = async () => {
     try {
-      const formattedClaimableAmount = web3.utils.fromWei(claimable.toString(), 'ether');
-      setClaimableAmount(Number(formattedClaimableAmount).toFixed(2));
+      // Get current timestamp in seconds (to match Solidity's block.timestamp)
+      const currentTimestamp = Math.floor(Date.now() / 1000);
+      const exitCycleInSeconds = 25 * 24 * 60 * 60; // 25 days in seconds
+      const threeDaysInSeconds = 3 * 24 * 60 * 60; // 3 days in seconds
   
-      const formattedAdvancedClaimableAmount = web3.utils.fromWei(claimableadvanced.toString(), 'ether');
-      setadvancedClaimableAmount(Number(formattedAdvancedClaimableAmount).toFixed(2));
+      // Get timeToRedeem from your contract read (assuming it's a BigNumber)
+      const timeToRedeemSeconds = Number(timetoredeem.toString());
+      const totalTime = Number(currentTimestamp + exitCycleInSeconds - threeDaysInSeconds);
+
+
+      console.log(timeToRedeemSeconds, "THIS IS TIME TO REDEEM!")
+      console.log(totalTime, 'This is total time')
+
+
+      const formattedClaimableAmount = web3.utils.fromWei(claimable.toString(), 'ether');
+      setClaimableAmount(Number(formattedClaimableAmount).toString());
+  
+  
+      // Check if the unlock condition is met
+      if (!(totalTime > timeToRedeemSeconds)) {
+        setadvancedClaimableAmount("To Unlock All, You need to wait 3 days from vesting");
+        return
+      } else {
+        console.log("HEllo HEllo")
+        const formattedAdvancedClaimableAmount = web3.utils.fromWei(claimableadvanced.toString(), 'ether');
+        setadvancedClaimableAmount(`${Number(formattedAdvancedClaimableAmount).toString()} $BCKGOV`);
+      }
     } catch (error) {
       console.error("Error fetching claimable amount:", error);
     }
@@ -209,7 +239,7 @@ export const MakerDAO2 = () => {
                   <div className="col-md-6">
                     <div className="d-flex justify-content-between">
                       <div className="maximum-bck">Unlock All Claim Size</div>
-                      <div className="value-maximum-bck"> {advancedclaimableAmount} $BCKGOV</div>
+                      <div className="value-maximum-bck">{advancedclaimableAmount}</div>
                     </div>
                   </div>
                 </div>
@@ -268,3 +298,4 @@ export const MakerDAO2 = () => {
     </>
   );
 };
+
