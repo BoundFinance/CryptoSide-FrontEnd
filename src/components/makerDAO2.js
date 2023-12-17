@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/MakerDao.css";
 
 import MintTabs2 from "./MintTabs2";
-import MintContent from "./MintContent";
+// import MintContent from "./MintContent";
+import MintContent from "./esBCKGOVcontent";
 import { useAccount, useChainId, useContractRead } from "wagmi";
 import Web3 from 'web3';
 
@@ -122,17 +123,17 @@ export const MakerDAO2 = () => {
 
 
       const formattedClaimableAmount = web3.utils.fromWei(claimable.toString(), 'ether');
-      setClaimableAmount(Number(formattedClaimableAmount).toString());
+      setClaimableAmount(Number(formattedClaimableAmount).toFixed(2).toString());
   
   
       // Check if the unlock condition is met
       if (!(totalTime > timeToRedeemSeconds)) {
-        setadvancedClaimableAmount("To Unlock All, You need to wait 3 days from vesting");
+        setadvancedClaimableAmount("Wait 3 days from vesting To Unlock All ");
         return
       } else {
         console.log("HEllo HEllo")
         const formattedAdvancedClaimableAmount = web3.utils.fromWei(claimableadvanced.toString(), 'ether');
-        setadvancedClaimableAmount(`${Number(formattedAdvancedClaimableAmount).toString()} $BCKGOV`);
+        setadvancedClaimableAmount(`${Number(formattedAdvancedClaimableAmount).toFixed(2).toString()} $BCKGOV`);
       }
     } catch (error) {
       console.error("Error fetching claimable amount:", error);
@@ -298,5 +299,3 @@ export const MakerDAO2 = () => {
     </>
   );
 };
-
-
