@@ -106,7 +106,7 @@ export default function CheckCupSafety() {
     const penaltyether = penaltyfee.toString()
     const cost = (parseFloat(amount) * parseFloat(penaltyether)) / 100;
     // Return the cost in Ether directly
-    return cost.toString();
+    return cost.toFixed(4).toString();
   };
   
   const { write: approve, data: approveData, error: approveError } = useContractWrite({
@@ -151,23 +151,7 @@ export default function CheckCupSafety() {
       toast.dismiss(loadingToastId.current);
       loadingToastId.current = toast.info(<Spinnerapproval />, { autoClose: false });
       approve();
-      setDepositCalled(true);
-      seterrormessage(false);
-    } catch (error) {
-      console.error(error);
-      setIsLoading(false);
-      toast.dismiss(loadingToastId.current);
-      toast.error(error.message || "Transaction failed. Please try again.");
-    }
-  };
-  
-  const handleBuy = async() => {
-    try {
-      setIsLoading(true);
-      toast.dismiss(loadingToastId.current);
-      loadingToastId.current = toast.info(<Spinner />, { autoClose: false });
-      buy();
-      setBuyCalled(true);
+      setDepositCalled(false);
       seterrormessage(false);
     } catch (error) {
       console.error(error);
@@ -178,16 +162,18 @@ export default function CheckCupSafety() {
   };
   
 
+
   const handleDepositMaxInput = async() => {
     if(!penaltyfee || penaltyfee === "N/A" || penaltyfee === 0) {
       penaltyfee = 0;
     }
     if (penaltyfee) {
+      console.log(penaltyfee, "PENALTY FEE / 40% ")
       const balance  = balanceofBCKGOV ? web3.utils.fromWei(balanceofBCKGOV.toString(), 'ether') : 0;
-      const cost = (parseFloat(balance) / parseFloat(penaltyfee)) / 100;
+      const cost = (Number(balance) / (Number(penaltyfee)) / 100);
       const balanceDiscountBCKGOV  = (web3.utils.fromWei(AmountofPurchasableEsBCKGOV.toString(), 'ether'));
-      const maxAmount = Math.min(parseFloat(balanceDiscountBCKGOV), parseFloat(cost));
-     setStakeAmount(maxAmount.toString()); // Reset this flag whenever bckapprove is called
+      const maxAmount = Math.min(Number((balanceDiscountBCKGOV), Number(cost)));
+     setStakeAmount(maxAmount.toFixed(4).toString()); // Reset this flag whenever bckapprove is called
   }
 };
   
@@ -197,7 +183,7 @@ export default function CheckCupSafety() {
       loadingToastId.current = toast.info(<Spinner />, {
         autoClose: false,
       });
-      handleBuy();
+      buy();
       setDepositCalled(true);
     } else if(success2 === "success" && !BuyCalled) {
       console.log("eUSD purchase success");
@@ -238,7 +224,7 @@ export default function CheckCupSafety() {
       toast.error(error2.message || "Transaction failed. Please try again.");
       seterrormessage(true)
     }
-  }, [success1, success2, error1, error2, BuyError, approveError, handleBuy, depositCalled, BuyCalled]);
+  }, [success1, success2, error1, error2, BuyError, approveError, buy, depositCalled, BuyCalled]);
 
 
 
@@ -364,7 +350,7 @@ useEffect(() => {
           <div className="w-full mt-3 flex flex-col gap-2">
             <div className="flex flex-col gap-1">
            
-<p className="text-16 font-medium mb-3 ">$ {stakeAmount} esBCKGov = $ {(parseFloat(stakeAmount) * parseFloat(penaltyfee)) / 100} BCKGov</p>
+<p className="text-16 font-medium mb-3 ">$ {stakeAmount} esBCKGov = $ {((Number(stakeAmount) * Number(penaltyfee)) / 100).toFixed(4)} BCKGov</p>
 
 
               <p className="text-14 font-medium">Amount of esBCKGOV you want to buy ($):</p>
@@ -389,7 +375,7 @@ useEffect(() => {
                 onClick={handleDeposit}
                 className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-3"
               >
-                deposit
+                Buy 
               </button>
             </div>
             
@@ -400,4 +386,6 @@ useEffect(() => {
     </div>
   );
         }  
+
+
 
