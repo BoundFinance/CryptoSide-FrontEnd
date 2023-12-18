@@ -173,7 +173,7 @@ export const MakerDao = () => {
                     style={{ fontSize: "20px" }}
                   >
                     <span className="next-step ">NEXT STEP </span>: Deposit BCKGOV
-                    in the BCKGOV savings account for Daily USDC yield + esBCKGOV
+                    in the BCKGOV savings account for Daily USDC yield + Protocol Revenue.
                   </p>
                 </div>
               </div>
