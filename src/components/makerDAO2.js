@@ -31,7 +31,7 @@ export const MakerDAO2 = () => {
   const [bckGovEmissions, setBckGovEmissions] = useState("0");
   const [activeChain, setActiveChain] = useState("");
   const [claimableAmount, setClaimableAmount] = useState("");
-  const [advancedclaimableAmount, setadvancedClaimableAmount] = useState("");
+  const [advancedclaimableAmount, setadvancedClaimableAmount] = useState("0.00 $BCKGOV");
 
   const getChainName = (chainId) => {
     const chainMap = {
