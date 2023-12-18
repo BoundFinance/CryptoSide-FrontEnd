@@ -253,7 +253,7 @@ const fetchClaimableAmount = async () => {
 
 
   const handleMaxDeposit = async () => {
-    const balance = web3.utils.fromWei(balanceesBCKGOV.toString(), 'ether'); 
+    const balance = web3.utils.fromWei(balanceesBCKGOV?.toString() || '0', 'ether');
     const formattedbalance =  Number(balance).toFixed(2)
     setDepositAmount( Number(formattedbalance).toFixed(2));
   };
