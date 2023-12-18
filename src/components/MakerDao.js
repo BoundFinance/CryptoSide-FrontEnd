@@ -172,8 +172,8 @@ export const MakerDao = () => {
                     className=" font-mont text-center p-for-next-step"
                     style={{ fontSize: "20px" }}
                   >
-                    <span className="next-step ">NEXT STEP </span>: Deposit BCK
-                    in the savings account for USDC yield.
+                    <span className="next-step ">NEXT STEP </span>: Deposit BCKGOV
+                    in the BCKGOV savings account for Daily USDC yield + esBCKGOV
                   </p>
                 </div>
               </div>
