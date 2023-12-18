@@ -157,27 +157,27 @@ export const MakerDao = () => {
                 <div className=" ">
                   <MintContent />
                 </div>
-                <div className="d-none d-md-block">
-                  <div className="flex justify-center items-center w-full">
-                    <Link
-                      to="/staking"
-                      className=" drop-shadow-xl hover:text-white  BoxGradient-button mt-4"
-                    >
-                      <div className="d-flex gap-3 justify-content-center">
-                        Step 2. <BiSolidChevronsRight className="mt-2" />
-                      </div>
-                    </Link>
-                  </div>
-                  <p
-                    className=" font-mont text-center p-for-next-step"
-                    style={{ fontSize: "20px" }}
-                  >
-                    <span className="next-step ">NEXT STEP </span>: Deposit BCKGOV
-                    in the BCKGOV savings account for Daily USDC yield + Protocol Revenue.
-                  </p>
-                </div>
-              </div>
-            </div>
+                    <div className="d-block"> {/* Changed from 'd-none d-md-block' to 'd-block' */}
+  <div className="flex justify-center items-center w-full">
+    <Link
+      to="/staking"
+      className="drop-shadow-xl hover:text-white BoxGradient-button mt-4"
+    >
+      <div className="d-flex gap-3 justify-content-center">
+        Step 2. <BiSolidChevronsRight className="mt-2" />
+      </div>
+    </Link>
+  </div>
+  <p
+    className="font-mont text-center p-for-next-step"
+    style={{ fontSize: "20px" }}
+  >
+    <span className="next-step">NEXT STEP</span>: Deposit BCKGOV
+    in the BCKGOV savings account for Daily USDC yield + Protocol Revenue.
+  </p>
+</div>
+</div>
+      </div>
             <div className="col-md-6 mt-[50px]">
               <MintTabs />
             </div>
