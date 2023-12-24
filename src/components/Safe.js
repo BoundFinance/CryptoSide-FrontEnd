@@ -246,7 +246,7 @@ useEffect(() => {
   useEffect(() => {
     const esud = eusdShares;
     const BCKGOVdeposit = bckGovBalance;
-    let stakePercentage = BCKGOVdeposit && esud ? ((BCKGOVdeposit / esud) * 100) : 0;
+    let stakePercentage = BCKGOVdeposit && esud ? ((BCKGOVdeposit * 1500 / esud) * 100) : 0;
     const min =  minimumeUSD ? web3.utils.fromWei(minimumeUSD?.toString(), 'ether') : 0;
     if(esud < min) {
       stakePercentage = 0;
