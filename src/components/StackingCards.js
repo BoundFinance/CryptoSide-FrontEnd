@@ -355,11 +355,11 @@ export default function StackingCards() {
         <div className="border-shadow mt-2 p-4">
           <div className="d-flex justify-content-between align-item-center">
             <div className="">
-              <p className="text-14">BCK Savings Account Balance</p>
+              <p className="text-14">BCKGOV Savings Account Balance</p>
             </div>
             <div className="">
               <p className="text-end font-bold text-13 font-bold font-Helvetica">
-                ${DepositedBCK} BCK
+                ${DepositedBCK} BCKGOV
               </p>
             </div>
           </div>
