@@ -399,7 +399,7 @@ export default function StackingCards() {
                   type="number"
                   onChange={handleStakeInputChange}
                   className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
-                  placeholder={`Balance of $BCK in user's wallet: $${bckBalance ? web3.utils.fromWei(bckBalance.toString(), 'ether') : '0'} BCK`}
+                  placeholder={`Balance of $BCKGov in user's wallet: $${bckBalance ? web3.utils.fromWei(bckBalance.toString(), 'ether') : '0'} BCKGov`}
                   value={stakeAmount}
                 />
                 <button
@@ -424,7 +424,7 @@ export default function StackingCards() {
                   type="number"
                   onChange={handleUnstakeInputChange}
                   className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
-                  placeholder={`Deposited Amount : $${depositedBCK ? web3.utils.fromWei(depositedBCK.toString(), 'ether') : '0'} BCK`}
+                  placeholder={`Deposited Amount : $${depositedBCK ? web3.utils.fromWei(depositedBCK.toString(), 'ether') : '0'} BCKGov`}
                   value={unstakeAmount}
                 />
                 <button
